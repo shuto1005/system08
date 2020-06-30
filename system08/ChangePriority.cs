@@ -8,10 +8,10 @@ using System.Windows.Input;
 
 namespace system08
 {
-	public partial class MainWindow
+	partial class Class1
 	{
-        private List<Button> button_list = new List<Button>();
-        private List<TextBox> text_list = new List<TextBox>();
+        private List<Button> button_list = new List<Button>(); //優先度変更のButtonのList
+        private List<TextBox> text_list = new List<TextBox>(); //優先度のTextBoxのList
         //private List<Win_data> win_data = new List<Win_data>();
         private int button_num = 0;
         private bool enter = false;
@@ -22,8 +22,7 @@ namespace system08
             var button = sender as Button;
             if (button == null)
                 return;
-            string str = button.Name.Remove(0, 6);
-            //str.Replace("button", "");
+            string str = button.Name.Remove(0, 6); //str.Replace("button", "");
             if (!int.TryParse(str, out button_num))
             {
                 MessageBox.Show(str);
