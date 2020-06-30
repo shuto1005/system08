@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GUEdcNMH8OwaAXJXjLF2P6xaTlq7cgGlM4E7jq/xW/ZlPQIbACysaRxCZdDPnbMLlXgieMvd3hJFl/IFgKMAqg==",
+  "dgSpecHash": "exv/k+UCt+JNE0Ba8pKMjCamtanqlAFdpkq/gjfiDRZfzSN+tTHLNRzh6v28wlpZUnl84xfWqSnlbDi3DkViog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sufan\\source\\repos\\system08\\system08\\system08.csproj",
+  "projectFilePath": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sufan\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
+    "C:\\Users\\aki90\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
   ],
   "logs": [
     {
