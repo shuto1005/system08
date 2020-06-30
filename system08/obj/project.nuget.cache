@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "fef/fv0yih3Jpt2j3fReTGlSeIAkHjKRSsBYz9smaJ/8Jp7jjkH59qElcZmZ8tiXp+QE2xd3vOJiDrGvetURUA==",
+  "dgSpecHash": "exv/k+UCt+JNE0Ba8pKMjCamtanqlAFdpkq/gjfiDRZfzSN+tTHLNRzh6v28wlpZUnl84xfWqSnlbDi3DkViog==",
   "success": true,
   "projectFilePath": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\aki90\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "パッケージ 'CSCore 1.2.1.2' はプロジェクトのターゲット フレームワーク '.NETCoreApp,Version=v3.1' ではなく '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' を使用して復元されました。このパッケージは、使用しているプロジェクトとの完全な互換性がない可能性があります。",
+      "libraryId": "CSCore",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
