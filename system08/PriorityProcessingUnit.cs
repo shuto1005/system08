@@ -25,4 +25,12 @@ namespace system08
             return -1;
         }
     }
+
+    struct wdata
+    {
+        String id;
+        int priority;
+        String productName;
+        IntPtr hwnd;
+    }
 }
