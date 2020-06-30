@@ -3,3 +3,9 @@ C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debu
 C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.cache
 C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.lref
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\system08.csprojAssemblyReference.cache
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.cache
+C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.lref
