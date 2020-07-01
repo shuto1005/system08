@@ -118,7 +118,7 @@ namespace System08
                 num = -num;
             */
 
-            wdata wd = new wdata();
+            wdata wd = new wdata(p.ToString(), -1, tsb.ToString(), hWnd); //id:プロセス名
             m_GetWindow_List.Add(wd);
 
             //true：次のウィンドウを列挙 <-> false：停止

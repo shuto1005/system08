@@ -39,7 +39,7 @@ namespace System08
 			bool flag = false;
 			for (int i = 0; i < list.Count; ++i)
 			{
-				//if (hWnd == list[i].hwnd)
+				if (hWnd == list[i].hwnd)
 				{
 					flag = true;
 					break;
