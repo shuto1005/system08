@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public class Class1
+namespace system08
 {
-	public Class1()
+
+	public partial class Class1
 	{
-	}
-	public void Save(List<wdata> data, string id, int priority, string productName) {
-		
+		public Class1()
+		{
+		}
+		public void Save(List<wdata> data, string id, int priority, string productName)
+		{
+
+		}
 	}
 }
