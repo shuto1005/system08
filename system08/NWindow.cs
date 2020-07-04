@@ -16,7 +16,7 @@ namespace EditableListViewTest
 
             NewWindow = new ObservableCollection<N_Window>();
 
-            var nwindow = new NewWindow("", "", "");
+            var nwindow = new N_Window("", 0, 0);
             NewWindow.Add(nwindow);
 
             
@@ -26,7 +26,7 @@ namespace EditableListViewTest
     } // end of MainWindow class
 
     //***********************************************************************************************
-    public class NewWindow
+    public class N_Window
     {
         public string ProductName { get; set; }
         public int Priority { get; set; }
