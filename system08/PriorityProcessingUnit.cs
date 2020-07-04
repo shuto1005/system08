@@ -26,11 +26,18 @@ namespace system08
         }
     }
 
-    struct wdata
+    class wdata
     {
-        String id;
-        int priority;
-        String productName;
-        IntPtr hwnd;
+        public string id;
+        public int priority;
+        public string productName;
+        public IntPtr hwnd;
+        public wdata(string id,int priority,string productName,IntPtr hwnd)
+        {
+            this.id = id;
+            this.priority = priority;
+            this.productName = productName;
+            this.hwnd = hwnd;
+        }
     }
 }

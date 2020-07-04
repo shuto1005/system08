@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj": {}
+    "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj": {
+    "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj",
+        "projectUniqueName": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
         "projectName": "system08",
-        "projectPath": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj",
-        "packagesPath": "C:\\Users\\yuto-\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\obj\\",
+        "projectPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
+        "packagesPath": "C:\\Users\\toitenu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yuto-\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\toitenu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
