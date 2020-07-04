@@ -27,7 +27,7 @@ namespace system08
         }
     }
 
-    class wdata
+    public class wdata
     {
         public string id;
         public int priority;
