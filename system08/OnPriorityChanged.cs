@@ -1,22 +1,49 @@
-﻿using System;
+﻿//制作者：AL18052 坂本達哉
+
+//内部関数：
+//  void SetPriority(object sender, RoutedEventArgs e)
+//      優先度変更ボタンを押した時に呼び出す
+//  void OnPriorityChanged1(object sender, TextCompositionEventArgs e)
+//      優先度欄に文字を入力した時に呼び出す
+//  void OnPriorityChanged2(object sender, KeyEventArgs e)
+//      優先度欄に【Enter】を入力した時に呼び出す
+//  void OnPriorityChanged3(object sender, KeyEventArgs e)
+//      優先度欄へのコピペを無効にする
+
+//未完成：
+//  【button_list, text_list, w_data】の読み込み処理が無いため。
+//   ボタンや優先度欄の有効/無効の切り替え、変更後の優先度の保持が出来ない
+
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
+using system08;
 
 namespace system08
 {
 	partial class UIModule
 	{
-        private List<Button> button_list = new List<Button>(); //優先度変更のButtonのList
-        private List<TextBox> text_list = new List<TextBox>(); //優先度のTextBoxのList
-        //private List<Win_data> win_data = new List<Win_data>();
-        private int button_num = 0;
-        private bool enter = false;
+        //優先度変更のButtonのList  Run()で読み込む予定
+        private List<Button> button_list = new List<Button>();
+        //優先度のTextBoxのList  Run()で読み込む予定
+        private List<TextBox> text_list = new List<TextBox>();
+        //wdataのList  GetWindows()で読み込む予定
+        //private List<wdata> w_data = new List<wdata>();
 
-        //テキストボックス（優先度入力）を有効にする
+        private int button_num = 0; //ボタン識別変数
+        private bool enter = false; //Enter識別変数
+
+
+        /// <summary>
+        /// 【優先度変更ボタン】を全て無効にする
+        /// 押された【優先度変更ボタン】に対応する【優先度欄】(TextBox)のみを有効にする
+        /// 優先度変更の重複を避けるため。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetPriority(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -29,11 +56,22 @@ namespace system08
                 return;
             }
 
+            //静的関数でないけど、どうやって呼び出す？
+            //if(PriorityModule.CheckWindow())/////////////////////////////////////////////////////////////////////////////
+
             for (int i = 0; i < button_list.Count; ++i)
                 button_list[i].IsEnabled = false;
             text_list[button_num].IsEnabled = true;
         }
 
+
+        /// <summary>
+        /// 優先度は数字2文字までを受け付ける
+        /// 0文字で【Enter】が押されたらエラー表示する
+        /// 2文字を超えるとエラー表示する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPriorityChanged1(object sender, TextCompositionEventArgs e)
         {
             bool flag;
@@ -65,6 +103,17 @@ namespace system08
             }
         }
 
+
+        /// <summary>
+        /// 【Enter】が押されたら、呼び出される
+        /// 【01】などを【1】に戻す
+        /// 【優先度欄】を無効にする
+        /// 【優先度変更ボタン】を全て有効にする
+        /// 【ウィンドウを更新する関数】を呼び出す
+        /// 【変更された優先度】を保存する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPriorityChanged2(object sender, KeyEventArgs e)
         {
             int num = button_num;
@@ -76,15 +125,23 @@ namespace system08
                 text_list[num].IsEnabled = false;
 
                 //優先度を保持
-                //win_data[num].SetPriority(int.Parse(text_list[num].Text));
-                //優先度選択画面の次に前面のウィンドウの優先度変更
+                //wdata[num].priority = int.Parse(text_list[num].Text);
 
+                //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
+
+                //優先度変更ボタンを有効にする
                 for (int i = 0; i < button_list.Count; ++i)
                     button_list[i].IsEnabled = true;
             }
         }
 
-        // 貼り付けを許可しない
+
+ 
+        /// <summary>
+        /// 貼り付けを許可しない
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPriorityChanged3(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Paste)
