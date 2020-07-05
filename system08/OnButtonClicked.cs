@@ -7,9 +7,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 namespace System08
 {
-	partial class Class1
+	partial class UIModule
 	{
-		private void UpdateButton(object sender, RoutedEventArgs e)
+		private void OnButtonClicked(object sender, RoutedEventArgs e)
         {
 			//
         }

@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace system08
 {
-	partial class Class1
+	partial class UIModule
 	{
         private List<Button> button_list = new List<Button>(); //優先度変更のButtonのList
         private List<TextBox> text_list = new List<TextBox>(); //優先度のTextBoxのList
@@ -17,7 +17,7 @@ namespace system08
         private bool enter = false;
 
         //テキストボックス（優先度入力）を有効にする
-        private void setPriority(object sender, RoutedEventArgs e)
+        private void SetPriority(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             if (button == null)
@@ -34,7 +34,7 @@ namespace system08
             text_list[button_num].IsEnabled = true;
         }
 
-        private void ChangePriority1(object sender, TextCompositionEventArgs e)
+        private void OnPriorityChanged1(object sender, TextCompositionEventArgs e)
         {
             bool flag;
             //入力文字列が２文字以下であるかを判定
@@ -65,7 +65,7 @@ namespace system08
             }
         }
 
-        private void ChangePriority2(object sender, KeyEventArgs e)
+        private void OnPriorityChanged2(object sender, KeyEventArgs e)
         {
             int num = button_num;
             if (e.Key == Key.Return && text_list[num].Text.Length >= 1)
@@ -85,7 +85,7 @@ namespace system08
         }
 
         // 貼り付けを許可しない
-        private void ChangePriority3(object sender, ExecutedRoutedEventArgs e)
+        private void OnPriorityChanged3(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Paste)
             {
