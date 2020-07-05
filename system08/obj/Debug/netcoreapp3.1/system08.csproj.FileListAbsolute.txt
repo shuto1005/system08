@@ -9,3 +9,4 @@ C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\
 C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
 C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.cache
 C:\Users\yuto-\Source\Repos\shuto1005\system08\system08\obj\Debug\netcoreapp3.1\system08_MarkupCompile.lref
+C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs

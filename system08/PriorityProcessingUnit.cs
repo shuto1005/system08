@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace system08
@@ -26,7 +27,7 @@ namespace system08
         }
     }
 
-    class wdata
+    public class wdata
     {
         public string id;
         public int priority;

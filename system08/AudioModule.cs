@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using CSCore.CoreAudioAPI;
 
 namespace system08
@@ -23,27 +24,79 @@ namespace system08
         }
 
         /// <summary>
-        /// Apply volumes.
+        /// Get volumes as integer.
         /// </summary>
         /// <param name="processId"></param>
         /// <param name="percentage"></param>
-        /// <returns></returns>
-        public static bool Apply(int processId, int percentage)
+        /// <returns>
+        /// -1 means no audio.
+        /// </returns>
+        public static int GetVolume(int processId)
+        {
+            int volume = -1;
+            Process process = Process.GetProcessById(processId);
+
+            // Get by enumerator.
+            GetAudioSessions((AudioSessionControl session) => {
+                try
+                {
+                    AudioSessionControl2 session2 = session.QueryInterface<AudioSessionControl2>();
+
+                    // // Ideal is branch if the process id is equal. (not working)
+                    // if (session2.ProcessID == processId)
+
+                    // If filename is the same.
+                    if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
+                    {
+                        SimpleAudioVolume audioVolume = session.QueryInterface<SimpleAudioVolume>();
+                        volume = (int)(audioVolume.MasterVolume * 100);
+                    }
+                } catch(Exception e)
+                {
+                    // Usually Win32Exception.
+                    Console.WriteLine(e.Message);
+                }
+            });
+
+            return volume;
+        }
+
+        /// <summary>
+        /// Set volumes.
+        /// </summary>
+        /// <param name="processId"></param>
+        /// <param name="percentage"></param>
+        /// <returns>
+        /// Volume is set or not.
+        /// </returns>
+        public static bool SetVolume(int processId, int percentage)
         {
             // Percentage validation.
             if (percentage < 0 || percentage > 100) return false;
 
             bool isApplied = false;
+            Process process = Process.GetProcessById(processId);
 
             // Apply percentage.
             GetAudioSessions((AudioSessionControl session) => {
-                AudioSessionControl2 session2 = session.QueryInterface<AudioSessionControl2>();
-                // If the process is equal.
-                if (session2.ProcessID == processId)
+                try
                 {
-                    SimpleAudioVolume volume = session.QueryInterface<SimpleAudioVolume>();
-                    volume.MasterVolume = (float)percentage / 100f;
-                    isApplied = true;
+                    AudioSessionControl2 session2 = session.QueryInterface<AudioSessionControl2>();
+
+                    // // Ideal is branch if the process id is equal. (not working)
+                    // if (session2.ProcessID == processId)
+
+                    // If filename is the same.
+                    if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
+                    {
+                        SimpleAudioVolume volume = session.QueryInterface<SimpleAudioVolume>();
+                        volume.MasterVolume = (float)percentage / 100f;
+                        isApplied = true;
+                    }
+                } catch(Exception e)
+                {
+                    // Usually Win32Exception.
+                    Console.WriteLine(e.Message);
                 }
             });
 
