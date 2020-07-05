@@ -7,17 +7,17 @@ namespace EditableListViewTest
 {
     public partial class MainWindow : Window
     {
-        private ObservableCollection<N_Window> NewWindow;
+        private ObservableCollection<NWindow> NewWindow;
 
         //-----------------------------------------------------------------------------------------------
         public MainWindow()
         {
             InitializeComponent();
 
-            NewWindow = new ObservableCollection<N_Window>();
+            NewWindow = new ObservableCollection<NWindow>();
 
-            var nwindow = new NewWindow("", "", "");
-            NewWindow.Add(nwindow);
+            var n_window = new NewWindow("", "", "");
+            NewWindow.Add(n_window);
 
             
 
@@ -32,7 +32,7 @@ namespace EditableListViewTest
         public int Priority { get; set; }
         public int Volume { get; set; }
 
-        public N_Window(string productName, int priority, int volume)
+        public NWindow(string productName, int priority, int volume)
         {
             this.ProductName = productName;
             this.Priority = priority;

@@ -1,0 +1,5 @@
+C:\Users\yuto-\source\repos\shuto1005\system08\system08\obj\Release\netcoreapp3.1\MainWindow.g.cs
+C:\Users\yuto-\source\repos\shuto1005\system08\system08\obj\Release\netcoreapp3.1\App.g.cs
+C:\Users\yuto-\source\repos\shuto1005\system08\system08\obj\Release\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\yuto-\source\repos\shuto1005\system08\system08\obj\Release\netcoreapp3.1\system08_MarkupCompile.cache
+C:\Users\yuto-\source\repos\shuto1005\system08\system08\obj\Release\netcoreapp3.1\system08_MarkupCompile.lref
