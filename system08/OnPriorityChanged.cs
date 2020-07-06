@@ -11,8 +11,8 @@
 //      優先度欄へのコピペを無効にする
 
 //未完成：
-//  【button_list, text_list, w_data】の読み込み処理が無いため。
-//   ボタンや優先度欄の有効/無効の切り替え、変更後の優先度の保持が出来ない
+//  【button_list, text_list】の読み込み処理が無いため。
+//   ボタンや優先度欄の有効/無効の切り替えが出来ない
 
 using System;
 using System.Collections.Generic;
@@ -30,8 +30,6 @@ namespace system08
         private List<Button> button_list = new List<Button>();
         //優先度のTextBoxのList  Run()で読み込む予定
         private List<TextBox> text_list = new List<TextBox>();
-        //wdataのList  GetWindows()で読み込む予定
-        //private List<wdata> w_data = new List<wdata>();
 
         private int button_num = 0; //ボタン識別変数
         private bool enter = false; //Enter識別変数
@@ -125,7 +123,7 @@ namespace system08
                 text_list[num].IsEnabled = false;
 
                 //優先度を保持
-                //wdata[num].priority = int.Parse(text_list[num].Text);
+                managedData[num].priority = int.Parse(text_list[num].Text);
 
                 //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
 

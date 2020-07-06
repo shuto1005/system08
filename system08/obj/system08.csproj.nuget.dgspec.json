@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj": {}
+    "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj": {
+    "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj",
+        "projectUniqueName": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
         "projectName": "system08",
-        "projectPath": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj",
-        "packagesPath": "C:\\Users\\aki90\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\obj\\",
+        "projectPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
+        "packagesPath": "C:\\Users\\toitenu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aki90\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\toitenu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -29,16 +30,21 @@ namespace system08
 
     public class wdata
     {
-        public string id;
+        public int id;
         public int priority;
         public string productName;
         public IntPtr hwnd;
-        public wdata(string id,int priority,string productName,IntPtr hwnd)
+        public wdata(int id,int priority,string productName,IntPtr hwnd)
         {
             this.id = id;
             this.priority = priority;
             this.productName = productName;
             this.hwnd = hwnd;
         }
+    }
+    partial class UIModule
+    {
+        public List<wdata> history = new List<wdata>();
+        public ObservableCollection<wdata> managedData = new ObservableCollection<wdata>();
     }
 }

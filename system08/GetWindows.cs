@@ -126,7 +126,7 @@ namespace System08
                 num = -num;
 
             //GetWindows関数の戻り値：List<wdata>へデータを追加
-            wdata wd = new wdata(num.ToString(), -1, tsb.ToString(), hWnd);
+            wdata wd = new wdata(num, -1, tsb.ToString(), hWnd);
             m_GetWindows_List.Add(wd);
 
             //true：次のウィンドウを列挙 <-> false：停止
