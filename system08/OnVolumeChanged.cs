@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace Sample08
+namespace system08
 {
 	public class UIModule
 	{

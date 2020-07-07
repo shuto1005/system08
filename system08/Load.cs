@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sample08
+namespace system08
 { 
 	public class PriorityModule
 	{
