@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace system08
 {
-	public class UIModule
+	public　partial class UIModule
 	{
 
 		private void OnVolumeChanged(object sender, EventArgs e)
