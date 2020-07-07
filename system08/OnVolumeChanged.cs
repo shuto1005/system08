@@ -38,16 +38,4 @@ namespace Sample08
 		private static extern int GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
 
 	}
-
-	public class PriorityModule
-	{
-		private List<wdata> Load()
-		{
-			
-
-		}
-	}
 }
-
-
-
