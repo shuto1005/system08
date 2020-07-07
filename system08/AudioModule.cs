@@ -31,9 +31,9 @@ namespace system08
         /// <returns>
         /// -1 means no audio.
         /// </returns>
-        public static int GetVolume(int processId)
+        public static double GetVolume(int processId)
         {
-            int volume = -1;
+            double volume = -1;
             Process process = Process.GetProcessById(processId);
 
             // Get by enumerator.
@@ -49,7 +49,7 @@ namespace system08
                     if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
                     {
                         SimpleAudioVolume audioVolume = session.QueryInterface<SimpleAudioVolume>();
-                        volume = (int)(audioVolume.MasterVolume * 100);
+                        volume = audioVolume.MasterVolume;
                     }
                 } catch(Exception e)
                 {
@@ -65,14 +65,14 @@ namespace system08
         /// Set volumes.
         /// </summary>
         /// <param name="processId"></param>
-        /// <param name="percentage"></param>
+        /// <param name="percentage">Range 0.0 to 1.0</param>
         /// <returns>
         /// Volume is set or not.
         /// </returns>
-        public static bool SetVolume(int processId, int percentage)
+        public static bool SetVolume(int processId, double percentage)
         {
             // Percentage validation.
-            if (percentage < 0 || percentage > 100) return false;
+            if (percentage < 0 || percentage > 1) return false;
 
             bool isApplied = false;
             Process process = Process.GetProcessById(processId);
@@ -90,7 +90,7 @@ namespace system08
                     if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
                     {
                         SimpleAudioVolume volume = session.QueryInterface<SimpleAudioVolume>();
-                        volume.MasterVolume = (float)percentage / 100f;
+                        volume.MasterVolume = (float)percentage;
                         isApplied = true;
                     }
                 } catch(Exception e)
