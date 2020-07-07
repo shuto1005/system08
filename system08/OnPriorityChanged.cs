@@ -126,8 +126,7 @@ namespace system08
                 managedData[num].priority = int.Parse(text_list[num].Text);
 
                 //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
-                PriorityProcessingUnit ppu = new PriorityProcessingUnit();
-                ppu.assignPriority(managedData[num].priority, managedData);
+                priorityModule.assignPriority(managedData[num].priority, managedData);
 
                 //優先度変更ボタンを有効にする
                 for (int i = 0; i < button_list.Count; ++i)

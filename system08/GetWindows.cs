@@ -6,8 +6,7 @@
 //  bool EnumWindowCallBack(IntPtr hWnd, IntPtr lparam)
 //      【EnumWindows関数】のコールバック関数
 
-//未完成：
-//  まだ仕様が固まっていないため
+//完成
 
 using System;
 using System.Collections.Generic;

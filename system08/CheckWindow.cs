@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using system08;
+using System.Runtime.InteropServices;
 
 namespace system08
 {
@@ -23,6 +24,8 @@ namespace system08
 		/// <returns></returns>
 		public bool CheckWindow(IntPtr hWnd)
 		{
+			return IsWindow(hWnd);
+			/*
 			List<wdata> list = GetWindows();
 			bool flag = false;
 			for (int i = 0; i < list.Count; ++i)
@@ -34,6 +37,9 @@ namespace system08
 				}
 			}
 			return flag;
+			*/
 		}
+		[DllImport("user32.dll")]
+		static extern bool IsWindow(IntPtr hWnd);
 	}
 }
