@@ -9,7 +9,7 @@ namespace system08
 		public Class1()
 		{
 		}
-		public void Save(List<wdata> data, string id, int priority, string productName)
+		public void Save(List<wdata> data)
 		{
 
 		}
