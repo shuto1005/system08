@@ -5,14 +5,14 @@ using System.Runtime.InteropServices;
 
 namespace system08
 {
-    class PriorityProcessingUnit
+    partial class PriorityModule
     {
 
-        const uint SWP_NOSIZE = 0x0001;
-        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
-        static readonly IntPtr HWND_TOP = new IntPtr(0);
-        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
-        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+//        const uint SWP_NOSIZE = 0x0001;
+//        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+//        static readonly IntPtr HWND_TOP = new IntPtr(0);
+//        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
+//        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
 
         const int MAX_PRIORITY = 100;
 
