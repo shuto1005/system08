@@ -53,10 +53,10 @@ namespace system08
                 MessageBox.Show(str);
                 return;
             }
-
-            //静的関数でないけど、どうやって呼び出す？
-            //if(PriorityModule.CheckWindow())/////////////////////////////////////////////////////////////////////////////
-
+            Slider sl = new Slider();
+            //PriorityModule
+            if (!priorityModule.CheckWindow(managedData[button_num].hwnd))
+                return;
             for (int i = 0; i < button_list.Count; ++i)
                 button_list[i].IsEnabled = false;
             text_list[button_num].IsEnabled = true;

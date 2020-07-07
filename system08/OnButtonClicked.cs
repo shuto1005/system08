@@ -22,7 +22,9 @@ namespace system08
 		/// <param name="e"></param>
 		private void OnButtonClicked(object sender, RoutedEventArgs e)
         {
-			//【新規ウィンドウ取得関数】を呼び出し
+			//【新規ウィンドウ取得関数】を呼び出し??
+			//1.破棄されたウィンドウの削除:void Remove(int id)
+			//2.新規ウィンドウ取得
 		}
 	}
 }
