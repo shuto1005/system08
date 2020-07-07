@@ -4,7 +4,7 @@ namespace system08
 { 
 	public partial class PriorityModule
 	{
-		private List<wdata> Load()
+		public List<wdata> Load()
 		{
 
 
