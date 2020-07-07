@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using system08;
 
-namespace System08
+namespace system08
 {
 	partial class PriorityModule
 	{

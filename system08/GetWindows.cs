@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using system08;
 
-namespace System08
+namespace system08
 {
     partial class PriorityModule
     {

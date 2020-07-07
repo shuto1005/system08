@@ -10,7 +10,7 @@
 using System;
 using System.Windows;
 
-namespace System08
+namespace system08
 {
 	partial class UIModule
 	{
