@@ -12,7 +12,7 @@ namespace EditableListViewTest
         //-----------------------------------------------------------------------------------------------
         public MainWindow()
         {
-            InitializeComponent();
+//            InitializeComponent();
 
             NewWindow = new ObservableCollection<N_Window>();
 
@@ -21,7 +21,7 @@ namespace EditableListViewTest
 
             
 
-            listView.ItemsSource = NewWindow;
+//            listView.ItemsSource = NewWindow;
         }
     } // end of MainWindow class
 
