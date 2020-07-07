@@ -34,19 +34,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sufan\\.nuget\\packages\\": {}
+    "C:\\Users\\Akinobu Izawa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sufan\\source\\repos\\system08\\system08\\system08.csproj",
+      "projectUniqueName": "C:\\Users\\Akinobu Izawa\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
       "projectName": "system08",
-      "projectPath": "C:\\Users\\sufan\\source\\repos\\system08\\system08\\system08.csproj",
-      "packagesPath": "C:\\Users\\sufan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sufan\\source\\repos\\system08\\system08\\obj\\",
+      "projectPath": "C:\\Users\\Akinobu Izawa\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
+      "packagesPath": "C:\\Users\\Akinobu Izawa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Akinobu Izawa\\Source\\Repos\\shuto1005\\system08\\system08\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\sufan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Akinobu Izawa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

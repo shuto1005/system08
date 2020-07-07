@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GUEdcNMH8OwaAXJXjLF2P6xaTlq7cgGlM4E7jq/xW/ZlPQIbACysaRxCZdDPnbMLlXgieMvd3hJFl/IFgKMAqg==",
+  "dgSpecHash": "NXpS1KFqXkAB0w8Xcl6aVM0ijzFJ3KQ/Zj15gmECFDub5hvVkkSYPPJya6NYsVnSzH/UWC1I/4ev4lM0EXFsrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sufan\\source\\repos\\system08\\system08\\system08.csproj",
+  "projectFilePath": "C:\\Users\\Akinobu Izawa\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sufan\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
+    "C:\\Users\\Akinobu Izawa\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
   ],
   "logs": [
     {
