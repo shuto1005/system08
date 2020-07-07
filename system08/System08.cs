@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -18,10 +19,16 @@ namespace system08
 		public UIModule()
 		{
 			priorityModule = new PriorityModule();
+			managedData = new ObservableCollection<wdata>();
 		}
 		public bool Run()
 		{
 			history = priorityModule.Load();
+			List<wdata> list = priorityModule.GetWindows();
+			if(list.Count > 0)
+            {
+
+            }
 			return true;
 		}
 

@@ -53,10 +53,10 @@ namespace system08
                 MessageBox.Show(str);
                 return;
             }
-
-            //静的関数でないけど、どうやって呼び出す？
-            //if(PriorityModule.CheckWindow())/////////////////////////////////////////////////////////////////////////////
-
+            Slider sl = new Slider();
+            //PriorityModule
+            if (!priorityModule.CheckWindow(managedData[button_num].hwnd))
+                return;
             for (int i = 0; i < button_list.Count; ++i)
                 button_list[i].IsEnabled = false;
             text_list[button_num].IsEnabled = true;
@@ -126,6 +126,8 @@ namespace system08
                 managedData[num].priority = int.Parse(text_list[num].Text);
 
                 //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
+                PriorityProcessingUnit ppu = new PriorityProcessingUnit();
+                ppu.assignPriority(managedData[num].priority, managedData);
 
                 //優先度変更ボタンを有効にする
                 for (int i = 0; i < button_list.Count; ++i)

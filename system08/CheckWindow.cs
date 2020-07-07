@@ -21,7 +21,7 @@ namespace system08
 		/// </summary>
 		/// <param name="hWnd"></param>
 		/// <returns></returns>
-		private bool CheckWindow(IntPtr hWnd)
+		public bool CheckWindow(IntPtr hWnd)
 		{
 			List<wdata> list = GetWindows();
 			bool flag = false;

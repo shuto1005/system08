@@ -28,7 +28,7 @@ namespace system08
         /// List型の変数【m_GetWindow_List】を返す
         /// </summary>
         /// <returns name="m_GetWindows_List"></returns>
-        private List<wdata> GetWindows()
+        public List<wdata> GetWindows()
         {
             //ウィンドウを列挙する
             EnumWindows(new EnumWindowsDelegate(EnumWindowCallBack), IntPtr.Zero);
