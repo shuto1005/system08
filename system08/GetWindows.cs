@@ -91,11 +91,6 @@ namespace system08
             System.Diagnostics.Trace.WriteLine("クラス名:" + csb.ToString());
             System.Diagnostics.Trace.WriteLine("プロセス名:" + p.ToString());
             System.Diagnostics.Trace.WriteLine("プロセスID:" + processId.ToString());
-            //hWndがList内の要素なら読み込まない
-            int i;
-            for (i = 0; i < win_data.Count; ++i)
-                if (hWnd == win_data[i].GetWindow_Id())
-                    return true;
             //*/
 
 

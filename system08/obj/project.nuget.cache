@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D8XK5qMr/Gak1MISVLSHmMUbpyb1Z0osTSTEiTt0Iyn2u6Q8tQ63/NLrD5zq59TC2VeDcx7vpfDtWQAUWoT5TA==",
+  "dgSpecHash": "ouxU+y73JIE7M7qmKUSptpLblqc/M88O894e9v8r+uJ+oM57AMZ1CS6FGnYoR487AwoI6Atk18jlTtuG1llp7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\toitenu\\source\\repos\\system08\\system08\\system08.csproj",
+  "projectFilePath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toitenu\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
   ],

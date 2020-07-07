@@ -80,7 +80,10 @@ namespace system08
                 }
             }
 
-            //5.リストを優先度選択画面に反映
+            //5.ウィンドウ切り替え
+            priorityModule.assignPriority(99, managedData);
+
+            //6.リストを優先度選択画面に反映
             //MainWindow mw = new MainWindow();
             //mw.Update_UI(managedData,text_list,button_list);
         }
