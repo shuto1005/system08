@@ -76,10 +76,4 @@ namespace system08
         */
     }
 
-    
-    partial class UIModule
-    {
-        public List<wdata> history = new List<wdata>();
-        public ObservableCollection<wdata> managedData = new ObservableCollection<wdata>();
-    }
 }
