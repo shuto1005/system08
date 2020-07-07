@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace Sample08
+namespace system08
 {
-	public class UIModule
+	public　partial class UIModule
 	{
 
 		private void OnVolumeChanged(object sender, EventArgs e)
@@ -38,16 +38,4 @@ namespace Sample08
 		private static extern int GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
 
 	}
-
-	public class PriorityModule
-	{
-		private List<wdata> Load()
-		{
-			
-
-		}
-	}
 }
-
-
-

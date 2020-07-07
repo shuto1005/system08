@@ -5,14 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace system08
 {
-	public class UIModule
+	public partial class UIModule
 
 	{
-		List<wdata> data;
 
 		private PriorityModule priorityModule;
 
@@ -23,13 +21,13 @@ namespace system08
 		}
 		public bool Run()
 		{
-			data = Load();
+			history = priorityModule.Load();
 			return true;
 		}
 
 		public void Destruct(int order_end)
 		{
-			Save(data);
+			priorityModule.Save(history);
 		}
 	}
 }
