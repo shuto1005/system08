@@ -54,7 +54,7 @@ namespace system08
                 return;
             }
             Slider sl = new Slider();
-            //PriorityModule
+
             if (!priorityModule.CheckWindow(managedData[button_num].hwnd))
                 return;
             for (int i = 0; i < button_list.Count; ++i)
