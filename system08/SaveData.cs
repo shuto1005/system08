@@ -35,7 +35,9 @@ namespace system08
         public int priority { get; set; }
         public string productName { get; set; }
         [JsonIgnore]
-        public IntPtr hwnd { get; set; }
+        public IntPtr hwnd { get; set; } = IntPtr.Zero;
+        [JsonIgnore]
+        public double volume { get; set; } = 0;
 
         /// <summary>
         /// ウィンドウ情報のコンストラクタ
@@ -44,12 +46,13 @@ namespace system08
         /// <param name="priority"></param>
         /// <param name="productName"></param>
         /// <param name="hwnd"></param>
-        public wdata(int id, int priority, string productName, IntPtr hwnd)
+        public wdata(int id, int priority, string productName, IntPtr hwnd, double volume)
         {
             this.id = id;
             this.priority = priority;
             this.productName = productName;
             this.hwnd = hwnd;
+            this.volume = volume;
         }
     }
     partial class UIModule
