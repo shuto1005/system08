@@ -6,7 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:system08"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing"
+        >
+        
     <Window.Resources>
         <ctrl:BooleanVisiblityConverter x:Key="booleanConverter"/>
         <Style x:Key="unselectedListViewStyle" TargetType="{x:Type TextBlock}">
@@ -25,7 +28,7 @@
 
     <DockPanel>
 
-        <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="650,0,10,10" Width="100"/>
+        <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="650,0,10,10" Width="100" Click="Button_Click"/>
         <ListView Name="listView" Margin="10">
             <ListView.View>
                 <GridView>

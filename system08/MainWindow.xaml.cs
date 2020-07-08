@@ -58,6 +58,17 @@ namespace system08
             module.OnPriorityChanged(sender, e);
 
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            module.Destruct(1);
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            module.OnButtonClicked(sender, e);
+        }
     } // end of MainWindow class
 
     //***********************************************************************************************
