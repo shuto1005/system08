@@ -25,7 +25,7 @@ namespace system08
                     if((line = sr.ReadLine()) != null)
                     {
                         Console.WriteLine(line);
-                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(data);
+                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(line);
 
 		            }    
                 }
