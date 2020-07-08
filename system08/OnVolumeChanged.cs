@@ -8,7 +8,7 @@ namespace system08
 	public　partial class UIModule
 	{
 
-		private void OnVolumeChanged(object sender, EventArgs e)
+		public void OnVolumeChanged(object sender, EventArgs e)
 		{
 			var sl = sender as Slider;
 			if (sl == null)
