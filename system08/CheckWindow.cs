@@ -1,40 +1,31 @@
-﻿using System;
+﻿//制作者：AL18052 坂本達哉
+
+//内部関数：
+//  CheckWindow(IntPtr hWnd)
+//		【ウィンドウの有効/無効】を調べる時に呼び出す。
+
+//完成
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using System.IO;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
-using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Reflection.Metadata;
 using system08;
+using System.Runtime.InteropServices;
 
-namespace System08
+namespace system08
 {
-	partial class Class1
+	partial class PriorityModule
 	{
 		/// <summary>
-		/// /Listで保持しているウィンドウハンドルが、現在でも有効であるどうか（破棄されていたらfalse）
+		/// /【引数で渡されたウィンドウハンドル】が、現在でも有効であるどうか
+		/// 有効なら【true】を返す
+		/// 無効なら【false】を返す
 		/// </summary>
 		/// <param name="hWnd"></param>
 		/// <returns></returns>
-		private bool CheckWindow(IntPtr hWnd)
+		public bool CheckWindow(IntPtr hWnd)
 		{
+			return IsWindow(hWnd);
+			/*
 			List<wdata> list = GetWindows();
 			bool flag = false;
 			for (int i = 0; i < list.Count; ++i)
@@ -44,9 +35,11 @@ namespace System08
 					flag = true;
 					break;
 				}
-
 			}
 			return flag;
+			*/
 		}
+		[DllImport("user32.dll")]
+		static extern bool IsWindow(IntPtr hWnd);
 	}
 }

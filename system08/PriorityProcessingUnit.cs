@@ -1,44 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace system08
 {
-    class PriorityProcessingUnit
+    partial class PriorityModule
     {
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        private static extern int MoveWindow(IntPtr hwnd, int x, int y,int nWidth, int nHeight, int bRepaint);
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
 
-        public void assignPriority(int window_id, int priority)
+//        const uint SWP_NOSIZE = 0x0001;
+//        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+//        static readonly IntPtr HWND_TOP = new IntPtr(0);
+//        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
+//        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+
+        const int MAX_PRIORITY = 100;
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint flags);
+
+        public void assignPriority(int activeWindowPriority, ObservableCollection<wdata> managedData)
         {
-            System.Diagnostics.Process p =
-            System.Diagnostics.Process.Start("notepad.exe");
-            p.WaitForInputIdle();
-            MoveWindow(p.MainWindowHandle, 0, 10, 300, 200, 1);
+
+            for (int j = MAX_PRIORITY; j >= activeWindowPriority; j--)
+            {
+                for (int i = 0; i < managedData.Count; i++)
+                {
+
+                    if (j == managedData[i].priority)
+                    {
+                        bool ret = SetWindowPos(managedData[i].hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE);
+                        if (ret == false)
+                        {
+                            int errCode = Marshal.GetLastWin32Error();
+                            throw new Exception("Win32エラー・コード：" +
+                                String.Format("{0:X8}", errCode));
+
+                        }
+                    }
+
+                }
+
+            }
+
+
+            for (int j = activeWindowPriority; j >= 0; j--)
+            {
+                for (int i = 0; i < managedData.Count; i++)
+                {
+
+                    if (j == managedData[i].priority)
+                    {
+                        bool ret = SetWindowPos(managedData[i].hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE);
+                        if (ret == false)
+                        {
+                            int errCode = Marshal.GetLastWin32Error();
+                            throw new Exception("Win32エラー・コード：" +
+                                String.Format("{0:X8}", errCode));
+
+                        }
+                    }
+
+                }
+
+            }
         }
 
+        /*
         public int Update(int win_num, int priotiry)
         {
 
             return -1;
         }
+        */
     }
 
-    public class wdata
-    {
-        public string id;
-        public int priority;
-        public string productName;
-        public IntPtr hwnd;
-        public wdata(string id,int priority,string productName,IntPtr hwnd)
-        {
-            this.id = id;
-            this.priority = priority;
-            this.productName = productName;
-            this.hwnd = hwnd;
-        }
-    }
 }

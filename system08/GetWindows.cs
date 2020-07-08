@@ -1,44 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿//制作者：AL18052 坂本達哉
 
-using System.IO;
-using System.Collections;
+//内部関数：
+//  List<wdata> GetWindows()
+//		ウィンドウを読み込む時に呼び出す
+//  bool EnumWindowCallBack(IntPtr hWnd, IntPtr lparam)
+//      【EnumWindows関数】のコールバック関数
+
+//完成
+
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
 using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Reflection.Metadata;
 using system08;
 
-namespace System08
+namespace system08
 {
-    partial class Class1
-    {        
-        //やむを得ずグローバル変数を使用。このファイル外では使用禁止。
-        private List<wdata> m_GetWindow_List = new List<wdata>();
+    partial class PriorityModule
+    {
+        // 【GetWindows関数】の戻り値で利用する変数
+        private List<wdata> m_GetWindows_List = new List<wdata>();
 
-        ///全ウィンドウを読み取り、List<wdata>を返す。
-        private List<wdata> GetWindows()
+        /// <summary>
+        /// ウィンドウを読み込む【EnumWindows関数】を呼び出すための関数
+        /// List型の変数【m_GetWindow_List】を返す
+        /// </summary>
+        /// <returns name="m_GetWindows_List"></returns>
+        public List<wdata> GetWindows()
         {
             //ウィンドウを列挙する
             EnumWindows(new EnumWindowsDelegate(EnumWindowCallBack), IntPtr.Zero);
-            return m_GetWindow_List;
+            return m_GetWindows_List;
         }
 
+
+
+        /// <summary>
+        /// EnumWindows関数のコールバック関数（必須）
+        /// 全てのウィンドウを読み込み、フィルタを通して必要なウィンドウを識別する。
+        /// 正しく読み込んだウィンドウは、List型の変数 m_GetWindow_List へ格納する。
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="lparam"></param>
+        /// <returns></returns>
         private bool EnumWindowCallBack(IntPtr hWnd, IntPtr lparam)
         {
             //ウィンドウが可視状態かどうかを取得する
@@ -78,23 +83,19 @@ namespace System08
             // プロセスIDからProcessクラスのインスタンスを取得
             Process p = Process.GetProcessById(processId);
 
-            /*
-            //結果を表示する（以下のデータは開閉する度に値が変わる）
+
+            /*/結果をLogに表示する（以下のデータはウィンドウを開閉する度に値が変わる）
             System.Diagnostics.Trace.WriteLine(count + "番目");
             System.Diagnostics.Trace.WriteLine("HWND:" + hWnd.ToString());
             System.Diagnostics.Trace.WriteLine("タイトル:" + tsb.ToString());
             System.Diagnostics.Trace.WriteLine("クラス名:" + csb.ToString());
             System.Diagnostics.Trace.WriteLine("プロセス名:" + p.ToString());
             System.Diagnostics.Trace.WriteLine("プロセスID:" + processId.ToString());
-            */
+            //*/
 
-            /*/hWndがList内の要素なら読み込まない
-            int i;
-            for (i = 0; i < win_data.Count; ++i)
-                if (hWnd == win_data[i].GetWindow_Id())
-                    return true;
 
-            //ハッシュ値を使ってnumber作成
+            //ハッシュ法で【wdataクラスのid】を作成する
+            //クラス名から２桁の整数を取得する
             string str = p.ToString().Replace("System.Diagnostics.Process", "");
             int i, sum = 0;
             for (i = 0; i < csb.ToString().Length; ++i)
@@ -103,7 +104,8 @@ namespace System08
                 sum += ch;
             }
             int csb_num = sum % 100 * 100;
-
+            
+            //プロセス名から２桁の整数を取得する
             sum = 0;
             for (i = 0; i < str.ToString().Length; ++i)
             {
@@ -112,18 +114,21 @@ namespace System08
             }
             int str_num = sum % 100;
 
-            //【number】の範囲は【0000～9999】上位2桁：クラス名  下位2桁：プロセス名
+            //【num】の範囲は【0000～9999】上位2桁：クラス名  下位2桁：プロセス名
             int num = csb_num + str_num;
             if (num < 0)
                 num = -num;
-            */
 
-            wdata wd = new wdata(p.ToString(), -1, tsb.ToString(), hWnd); //id:プロセス名
-            m_GetWindow_List.Add(wd);
+            //GetWindows関数の戻り値：List<wdata>へデータを追加
+            wdata wd = new wdata(num, -1, tsb.ToString(), hWnd);
+            m_GetWindows_List.Add(wd);
 
             //true：次のウィンドウを列挙 <-> false：停止
             return true;
         }
+
+
+        //以下：変数・関数の宣言
 
         public delegate bool EnumWindowsDelegate(IntPtr hWnd, IntPtr lparam);
 
