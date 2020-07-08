@@ -35,7 +35,7 @@ namespace system08
 
 
 
-            listView.ItemsSource = NewWindow;
+            listView.ItemsSource = module.managedData;
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
