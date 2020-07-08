@@ -32,7 +32,7 @@ namespace system08
 
             //1.全ウィンドウ取得
             List<wdata> list = priorityModule.GetWindows();
-            List<int> num = new List<int>(list.Count);
+            int[] num = Enumerable.Repeat<int>(-1, list.Count).ToArray();
 
             //2.破棄されたウィンドウの削除:void Remove(int id)
             for (int j = managedData.Count - 1; j >= 0; --j)
@@ -63,7 +63,7 @@ namespace system08
             }
 
             //4.新規ウィンドウの登録:void Add(wdata data)
-            for (int i = 0; i < num.Count && i < 100; ++i) //num.Count==list.Count///0～99まで追加する
+            for (int i = 0; i < num.Length && i < 100; ++i) //num.Length==list.Count///0～99まで追加する
             {
                 if(num[i] == 0)//新規ウィンドウ
                 {
