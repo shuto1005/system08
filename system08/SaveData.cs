@@ -11,6 +11,10 @@ namespace system08
 
 	public partial class PriorityModule
 	{
+        /// <summary>
+        /// データを ./data.txt として上書き保存
+        /// </summary>
+        /// <param name="data"></param>
 		public void Save(List<wdata> data)
 		{
             string serialized = JsonSerializer.Serialize(data);
@@ -26,7 +30,7 @@ namespace system08
     /// </summary>
     public class wdata
     {
-        // Accessor is needed to serialize.
+        // Set as properties, not as member variables to bind data and serialize.
         public int id { get; set; }
         public int priority { get; set; }
         public string productName { get; set; }
@@ -34,7 +38,7 @@ namespace system08
         public IntPtr hwnd { get; set; }
 
         /// <summary>
-        /// hwnd may be Zero when loading from data files.
+        /// ウィンドウ情報のコンストラクタ
         /// </summary>
         /// <param name="id"></param>
         /// <param name="priority"></param>
