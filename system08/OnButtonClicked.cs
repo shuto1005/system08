@@ -123,7 +123,7 @@ namespace system08
                 }
                 if (muted_ui != null)
                 {
-                    if (!managedData[i].muted && volume_ui != null)
+                    if (managedData[i].volume > 0 && volume_ui != null)
                     {
                         muted_ui.Visibility = Visibility.Hidden;
                         volume_ui.Value = managedData[i].volume;
@@ -137,11 +137,6 @@ namespace system08
                 //    border.BorderThickness = new Thickness(1);
             }
         }
-    }
-    public partial class wdata
-    {
-        public bool muted;
-        public double volume;
     }
     //*/
 }
