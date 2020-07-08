@@ -25,8 +25,9 @@ namespace system08
                     if((line = sr.ReadLine()) != null)
                     {
                         Console.WriteLine(line);
-                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(data);
+                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(line);
 
+                        return history;
 		            }    
                 }
             }
@@ -35,7 +36,8 @@ namespace system08
                 // Let the user know what went wrong.
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
-            }            
+            }           
+            return null;
 	    }
     }
 }
