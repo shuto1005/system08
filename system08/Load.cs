@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
@@ -16,15 +17,17 @@ namespace system08
 
             // Create an instance of StreamReader to read from a file.
             // The using statement also closes the StreamReader.
-            using (StreamReader sr = new StreamReader("data.txt"))
+            using (StreamReader sr = new StreamReader(@".\data.txt"))
                 {
                     string line;
                     // Read and display lines from the file until the end of
                     // the file is reached.
-                    while ((line = sr.ReadLine()) != null)
+                    if((line = sr.ReadLine()) != null)
                     {
                         Console.WriteLine(line);
-                    }
+                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(data);
+
+		            }    
                 }
             }
             catch (Exception e)
@@ -32,15 +35,7 @@ namespace system08
                 // Let the user know what went wrong.
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
-            }
-
-
-		    string deserialized = JsonSerializer.Deserialize(data);
-
-		    StreamReader reader = new StreamReader(@".\data.txt", false, Encoding.GetEncoding("UTF-8"));
-		    reader.Read(serialized);
-		    reader.Close();
-            
+            }            
 	    }
     }
 }
