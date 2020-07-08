@@ -39,8 +39,7 @@ namespace system08
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //    TestSlider.Text = e.NewValue.ToString();
-
+            module.OnVolumeChanged(sender,e);
         }
         
     } // end of MainWindow class
