@@ -26,7 +26,7 @@ namespace system08
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnButtonClicked(object sender, RoutedEventArgs e)
+        public void OnButtonClicked(object sender, RoutedEventArgs e)
         {
             //【新規ウィンドウ取得関数】を呼び出し??
 
