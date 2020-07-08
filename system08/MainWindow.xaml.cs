@@ -19,12 +19,14 @@ namespace system08
 {
     public partial class MainWindow : Window
     {
+        private UIModule module;
         private ObservableCollection<N_Window> NewWindow;
 
         //-----------------------------------------------------------------------------------------------
         public MainWindow()
         {
             InitializeComponent();
+            module = new UIModule();
 
             NewWindow = new ObservableCollection<N_Window>();
 
@@ -37,15 +39,24 @@ namespace system08
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //    TestSlider.Text = e.NewValue.ToString();
+            module.OnVolumeChanged(sender,e);
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            module.PreviewPriorityText(sender, e);
+        }
+
+        private void TextBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            module.PreviewPriorityExecuted(sender, e);
 
         }
-        public class UIModule
-        {
-            public void Add(List<wdata> data, int id, int priority, string fileName, IntPtr hwnd)
-            {
 
-            }
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            module.OnPriorityChanged(sender, e);
+
         }
     } // end of MainWindow class
 
