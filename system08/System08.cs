@@ -20,15 +20,17 @@ namespace system08
 		{
 			priorityModule = new PriorityModule();
 			managedData = new ObservableCollection<wdata>();
+			Run();
 		}
 		public bool Run()
 		{
 			history = priorityModule.Load();
-			List<wdata> list = priorityModule.GetWindows();
-			if(list.Count > 0)
-            {
+			List<wdata> list = GetWindowsWithHistory();
 
-            }
+			for (int i = 0; i < list.Count; i++)
+			{
+				managedData.Add(list[i]);
+			}
 			return true;
 		}
 
