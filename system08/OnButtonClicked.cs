@@ -39,7 +39,7 @@ namespace system08
             {
                 if (!priorityModule.CheckWindow(managedData[j].hwnd))
                 {
-                    //Remove(managedData[j].id);  managedData.RemoveAt(j);
+                    managedData.RemoveAt(j);
                     continue;
                 }
 
@@ -55,6 +55,8 @@ namespace system08
 
             //3.新規ウィンドウの優先度設定
             int[] txt_data = Enumerable.Repeat<int>(-1, 10000).ToArray();
+            if (history == null)
+                history = new List<wdata>();
             for(int i=0;i<history.Count;++i)
             {
                 if (history[i].id < 0 || history[i].id >= 10000)
@@ -65,7 +67,7 @@ namespace system08
             //4.新規ウィンドウの登録:void Add(wdata data)
             for (int i = 0; i < num.Length && i < 100; ++i) //num.Length==list.Count///0～99まで追加する
             {
-                if(num[i] == 0)//新規ウィンドウ
+                if (num[i] == -1)//新規ウィンドウ
                 {
                     int check = txt_data[list[i].id];
                     if (check != -1)
@@ -76,7 +78,7 @@ namespace system08
                     {
                         list[i].priority = 99 - i;  /// 一致しなかったら、SetPriority(99-i)
                     }
-                    //Add(list[i]);  managedData.Add(list[i]);
+                    managedData.Add(list[i]);
                 }
             }
 

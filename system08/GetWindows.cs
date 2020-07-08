@@ -20,7 +20,8 @@ namespace system08
     partial class PriorityModule
     {
         // 【GetWindows関数】の戻り値で利用する変数
-        private List<wdata> m_GetWindows_List = new List<wdata>();
+        private List<wdata> m_GetWindows_List;
+        //private int count = 0;
 
         /// <summary>
         /// ウィンドウを読み込む【EnumWindows関数】を呼び出すための関数
@@ -29,6 +30,8 @@ namespace system08
         /// <returns name="m_GetWindows_List"></returns>
         public List<wdata> GetWindows()
         {
+            //count = 0;
+            m_GetWindows_List = new List<wdata>();
             //ウィンドウを列挙する
             EnumWindows(new EnumWindowsDelegate(EnumWindowCallBack), IntPtr.Zero);
             return m_GetWindows_List;
@@ -85,6 +88,7 @@ namespace system08
 
 
             /*/結果をLogに表示する（以下のデータはウィンドウを開閉する度に値が変わる）
+            ++count;
             System.Diagnostics.Trace.WriteLine(count + "番目");
             System.Diagnostics.Trace.WriteLine("HWND:" + hWnd.ToString());
             System.Diagnostics.Trace.WriteLine("タイトル:" + tsb.ToString());
