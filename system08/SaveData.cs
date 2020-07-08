@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.IO;
+using System.Text;
 
 namespace system08
 {
@@ -9,8 +12,12 @@ namespace system08
 	{
 		public void Save(List<wdata> data)
 		{
-
-		}
+            string serialized = JsonSerializer.Serialize(data);
+            // 上書き保存
+            StreamWriter writer = new StreamWriter(@".\data.txt", false, Encoding.GetEncoding("UTF-8"));
+            writer.Write(serialized);
+            writer.Close();
+        }
     }
 
     /// <summary>
