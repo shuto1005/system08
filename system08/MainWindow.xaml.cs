@@ -12,17 +12,61 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace system08
+
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<N_Window> NewWindow;
+
+        //-----------------------------------------------------------------------------------------------
         public MainWindow()
         {
             InitializeComponent();
+
+            NewWindow = new ObservableCollection<N_Window>();
+
+            var nwindow = new N_Window("", 0, 0);
+            NewWindow.Add(nwindow);
+
+
+
+            listView.ItemsSource = NewWindow;
         }
-    }
-}
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            //    TestSlider.Text = e.NewValue.ToString();
+
+        }
+        public class UIModule
+        {
+            public void Add(List<wdata> data, int id, int priority, string fileName, IntPtr hwnd)
+            {
+
+            }
+        }
+    } // end of MainWindow class
+
+    //***********************************************************************************************
+    public class N_Window
+    {
+        public string ProductName { get; set; }
+        public int Priority { get; set; }
+        public int Volume { get; set; }
+
+        public N_Window(string productName, int priority, int volume)
+        {
+            this.ProductName = productName;
+            this.Priority = priority;
+            this.Volume = volume;
+        }
+
+        public override string ToString()
+        {
+            return this.ProductName + "-" + this.Priority + "-" + this.Volume;
+        }
+    } // end of N_Window class
+
+} // end of namespace

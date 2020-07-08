@@ -24,12 +24,13 @@
     </Window.Resources>
 
     <DockPanel>
-        <TextBlock Name="textBlock" DockPanel.Dock="Bottom" Height="40" Margin="20,0,20,10" TextWrapping="Wrap"/>
 
+        <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="20,0,10,10" Width="100"/>
+        <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="20,0,10,10" Width="100"/>
         <ListView Name="listView" Margin="10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  DisplayMemberBinding="{Binding Path=productName}" Header="アプリ名" Width="200" />
+                    <GridViewColumn  DisplayMemberBinding="{Binding Path=productName}" Header="アプリ名" Width="400" />
                     <GridViewColumn Header="優先度" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -40,8 +41,29 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=volume}" Header="音量" Width="100">
-                        </GridViewColumn>
+                    <GridViewColumn Header="音量" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Slider Width="150"
+                                            TickPlacement="BottomRight"
+                                            Foreground="Black"
+                                            Margin="10"
+                                            IsSnapToTickEnabled="True"
+                                            TickFrequency="0.1"
+                                            SmallChange="0.01"
+                                            LargeChange="0.2"
+                                            Minimum="0"
+                                            Maximum="1"
+                                            ValueChanged="Slider_ValueChanged"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=volume}" Style="{StaticResource unselectedListViewStyle}"/>
+                                        <TextBlock Name="TestSlider"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
