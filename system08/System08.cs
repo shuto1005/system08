@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace system08
@@ -37,6 +38,7 @@ namespace system08
 		public void Destruct(int order_end)
 		{
 			priorityModule.Save(history);
+			Release();
 		}
 	}
 }
