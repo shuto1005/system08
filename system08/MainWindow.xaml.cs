@@ -19,12 +19,14 @@ namespace system08
 {
     public partial class MainWindow : Window
     {
+        private UIModule module;
         private ObservableCollection<N_Window> NewWindow;
 
         //-----------------------------------------------------------------------------------------------
         public MainWindow()
         {
             InitializeComponent();
+            module = new UIModule();
 
             NewWindow = new ObservableCollection<N_Window>();
 
@@ -40,13 +42,7 @@ namespace system08
             //    TestSlider.Text = e.NewValue.ToString();
 
         }
-        public class UIModule
-        {
-            public void Add(List<wdata> data, int id, int priority, string fileName, IntPtr hwnd)
-            {
-
-            }
-        }
+        
     } // end of MainWindow class
 
     //***********************************************************************************************

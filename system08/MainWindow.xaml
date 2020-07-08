@@ -26,7 +26,6 @@
     <DockPanel>
 
         <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="20,0,10,10" Width="100"/>
-        <Button Content="更新" DockPanel.Dock="Bottom" Height="40" Margin="20,0,10,10" Width="100"/>
         <ListView Name="listView" Margin="10">
             <ListView.View>
                 <GridView>
