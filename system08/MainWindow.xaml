@@ -57,6 +57,7 @@
                                             LargeChange="0.2"
                                             Minimum="0"
                                             Maximum="1"
+                                            Value="{Binding Path=volume}"
                                             ValueChanged="Slider_ValueChanged"/>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                         <TextBlock Text="volume:"/>
