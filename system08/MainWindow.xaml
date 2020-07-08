@@ -35,7 +35,10 @@
                             <DataTemplate>
                                 <Grid>
                                     <TextBlock Text="{Binding Path=priority}" Style="{StaticResource unselectedListViewStyle}"/>
-                                    <TextBox  Text="{Binding Path=priority}" Style="{StaticResource selectedListViewStyle}" />
+                                    <TextBox PreviewTextInput="TextBox_PreviewTextInput" 
+                                             CommandManager.PreviewExecuted="TextBox_PreviewExecuted"
+                                             KeyDown="TextBox_KeyDown"
+                                             Text="{Binding Path=priority}" Style="{StaticResource selectedListViewStyle}" />
                                 </Grid>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

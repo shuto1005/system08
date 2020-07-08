@@ -41,7 +41,23 @@ namespace system08
         {
             module.OnVolumeChanged(sender,e);
         }
-        
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            module.PreviewPriorityText(sender, e);
+        }
+
+        private void TextBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            module.PreviewPriorityExecuted(sender, e);
+
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            module.OnPriorityChanged(sender, e);
+
+        }
     } // end of MainWindow class
 
     //***********************************************************************************************
