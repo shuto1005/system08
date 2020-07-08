@@ -70,7 +70,7 @@ namespace system08
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnPriorityChanged1(object sender, TextCompositionEventArgs e)
+        private void PreviewPriorityText(object sender, TextCompositionEventArgs e)
         {
             bool flag;
             //入力文字列が２文字以下であるかを判定
@@ -112,7 +112,7 @@ namespace system08
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnPriorityChanged2(object sender, KeyEventArgs e)
+        private void OnPriorityChanged(object sender, KeyEventArgs e)
         {
             int num = button_num;
             if (e.Key == Key.Return && text_list[num].Text.Length >= 1)
@@ -141,7 +141,7 @@ namespace system08
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnPriorityChanged3(object sender, ExecutedRoutedEventArgs e)
+        private void PreviewPriorityExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Paste)
             {
