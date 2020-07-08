@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.IO;
 using System.Text;
 
@@ -25,10 +26,12 @@ namespace system08
     /// </summary>
     public class wdata
     {
-        public int id;
-        public int priority;
-        public string productName;
-        public IntPtr hwnd;
+        // Accessor is needed to serialize.
+        public int id { get; set; }
+        public int priority { get; set; }
+        public string productName { get; set; }
+        [JsonIgnore]
+        public IntPtr hwnd { get; set; }
 
         /// <summary>
         /// hwnd may be Zero when loading from data files.
