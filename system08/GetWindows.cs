@@ -14,6 +14,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using system08;
+using System.Windows;
 
 namespace system08
 {
@@ -21,7 +22,8 @@ namespace system08
     {
         // 【GetWindows関数】の戻り値で利用する変数
         private List<wdata> m_GetWindows_List;
-        //private int count = 0;
+        public IntPtr this_window_hwnd = IntPtr.Zero;
+        private int count = 0;
 
         /// <summary>
         /// ウィンドウを読み込む【EnumWindows関数】を呼び出すための関数
@@ -30,7 +32,7 @@ namespace system08
         /// <returns name="m_GetWindows_List"></returns>
         public List<wdata> GetWindows()
         {
-            //count = 0;
+            count = 0;
             m_GetWindows_List = new List<wdata>();
             //ウィンドウを列挙する
             EnumWindows(new EnumWindowsDelegate(EnumWindowCallBack), IntPtr.Zero);
@@ -79,6 +81,10 @@ namespace system08
             if (csb.ToString() == "Progman")
                 return true;
 
+            //【MainWindow】を除外
+            if (tsb.ToString() == "MainWindow")
+                return true;
+
             // ウィンドウハンドルからプロセスIDを取得
             int processId;
             GetWindowThreadProcessId(hWnd, out processId);
@@ -87,7 +93,7 @@ namespace system08
             Process p = Process.GetProcessById(processId);
 
 
-            /*/結果をLogに表示する（以下のデータはウィンドウを開閉する度に値が変わる）
+            //*/結果をLogに表示する（以下のデータはウィンドウを開閉する度に値が変わる）
             ++count;
             System.Diagnostics.Trace.WriteLine(count + "番目");
             System.Diagnostics.Trace.WriteLine("HWND:" + hWnd.ToString());

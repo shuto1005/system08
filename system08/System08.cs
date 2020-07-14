@@ -32,6 +32,7 @@ namespace system08
 			{
 				managedData.Add(list[i]);
 			}
+			priorityModule.assignPriority(IntPtr.Zero, 99,managedData);
 			return true;
 		}
 

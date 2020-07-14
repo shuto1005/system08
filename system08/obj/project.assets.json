@@ -39,11 +39,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\toitenu\\source\\repos\\system08\\system08\\system08.csproj",
+      "projectUniqueName": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
       "projectName": "system08",
-      "projectPath": "C:\\Users\\toitenu\\source\\repos\\system08\\system08\\system08.csproj",
+      "projectPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\system08.csproj",
       "packagesPath": "C:\\Users\\toitenu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\toitenu\\source\\repos\\system08\\system08\\obj\\",
+      "outputPath": "C:\\Users\\toitenu\\Source\\Repos\\system08\\system08\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\toitenu\\AppData\\Roaming\\NuGet\\NuGet.Config",
