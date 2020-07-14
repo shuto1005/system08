@@ -57,7 +57,7 @@ namespace system08
             int[] txt_data = Enumerable.Repeat<int>(-1, 10000).ToArray();
             if (history == null)
                 history = new List<wdata>();
-            for(int i=0;i<history.Count;++i)
+            for (int i = 0; i < history.Count; ++i)
             {
                 if (history[i].id < 0 || history[i].id >= 10000)
                     return;
@@ -83,7 +83,7 @@ namespace system08
             }
 
             //5.ウィンドウ切り替え
-            priorityModule.assignPriority(99, managedData);
+            priorityModule.assignPriority(IntPtr.Zero, 100, managedData);
 
             //6.リストを優先度選択画面に反映
             //MainWindow mw = new MainWindow();
@@ -133,10 +133,6 @@ namespace system08
                     else
                         muted_ui.Visibility = Visibility.Visible;
                 }
-                //テンプレートを使う場合
-                //var border = TestButton.Template.FindName("TestBorder", TestButton) as Border;
-                //if (null != border)
-                //    border.BorderThickness = new Thickness(1);
             }
         }
     }
