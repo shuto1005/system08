@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cJxgS2bHyFj+gBTr1QperzSAImJufG5tNLO/O2cmUls//UouFEj5JCgXTxjgWntFiXGJM8eeGfWNANh598bTMw==",
+  "dgSpecHash": "exv/k+UCt+JNE0Ba8pKMjCamtanqlAFdpkq/gjfiDRZfzSN+tTHLNRzh6v28wlpZUnl84xfWqSnlbDi3DkViog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yuto-\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
+  "projectFilePath": "C:\\Users\\aki90\\Documents\\program sources\\visualstudio\\system08\\system08\\system08.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\yuto-\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
+    "C:\\Users\\aki90\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512"
   ],
   "logs": [
     {

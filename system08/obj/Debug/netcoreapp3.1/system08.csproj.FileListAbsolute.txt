@@ -70,3 +70,5 @@ C:\Users\toitenu\Source\Repos\system08\system08\obj\Debug\netcoreapp3.1\system08
 C:\Users\toitenu\Source\Repos\system08\system08\obj\Debug\netcoreapp3.1\system08.dll
 C:\Users\toitenu\Source\Repos\system08\system08\obj\Debug\netcoreapp3.1\system08.pdb
 C:\Users\toitenu\Source\Repos\system08\system08\obj\Debug\netcoreapp3.1\system08.genruntimeconfig.cache
+C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\system08.dll
+C:\Users\aki90\Documents\program sources\visualstudio\system08\system08\obj\Debug\netcoreapp3.1\system08.pdb
