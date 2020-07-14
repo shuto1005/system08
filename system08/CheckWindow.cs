@@ -25,19 +25,6 @@ namespace system08
 		public bool CheckWindow(IntPtr hWnd)
 		{
 			return IsWindow(hWnd);
-			/*
-			List<wdata> list = GetWindows();
-			bool flag = false;
-			for (int i = 0; i < list.Count; ++i)
-			{
-				if (hWnd == list[i].hwnd)
-				{
-					flag = true;
-					break;
-				}
-			}
-			return flag;
-			*/
 		}
 		[DllImport("user32.dll")]
 		static extern bool IsWindow(IntPtr hWnd);

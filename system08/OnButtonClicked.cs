@@ -5,7 +5,7 @@
 //		【新規ウィンドウ取得ボタン】を押した時に呼び出す。
 
 //未完成：
-//  【新規ウィンドウ取得関数】が判明しないため。
+//  
 
 using System;
 using System.Windows;
@@ -32,14 +32,14 @@ namespace system08
 
             //1.全ウィンドウ取得
             List<wdata> list = priorityModule.GetWindows();
-            List<int> num = new List<int>(list.Count);
+            int[] num = Enumerable.Repeat<int>(-1, list.Count).ToArray();
 
             //2.破棄されたウィンドウの削除:void Remove(int id)
             for (int j = managedData.Count - 1; j >= 0; --j)
             {
                 if (!priorityModule.CheckWindow(managedData[j].hwnd))
                 {
-                    //Remove(managedData[j].id);  managedData.RemoveAt(j);
+                    managedData.RemoveAt(j);
                     continue;
                 }
 
@@ -55,6 +55,8 @@ namespace system08
 
             //3.新規ウィンドウの優先度設定
             int[] txt_data = Enumerable.Repeat<int>(-1, 10000).ToArray();
+            if (history == null)
+                history = new List<wdata>();
             for(int i=0;i<history.Count;++i)
             {
                 if (history[i].id < 0 || history[i].id >= 10000)
@@ -63,9 +65,9 @@ namespace system08
             }
 
             //4.新規ウィンドウの登録:void Add(wdata data)
-            for (int i = 0; i < num.Count && i < 100; ++i) //num.Count==list.Count///0～99まで追加する
+            for (int i = 0; i < num.Length && i < 100; ++i) //num.Length==list.Count///0～99まで追加する
             {
-                if(num[i] == 0)//新規ウィンドウ
+                if (num[i] == -1)//新規ウィンドウ
                 {
                     int check = txt_data[list[i].id];
                     if (check != -1)
@@ -76,7 +78,7 @@ namespace system08
                     {
                         list[i].priority = 99 - i;  /// 一致しなかったら、SetPriority(99-i)
                     }
-                    //Add(list[i]);  managedData.Add(list[i]);
+                    managedData.Add(list[i]);
                 }
             }
 
@@ -123,7 +125,7 @@ namespace system08
                 }
                 if (muted_ui != null)
                 {
-                    if (!managedData[i].muted && volume_ui != null)
+                    if (managedData[i].volume > 0 && volume_ui != null)
                     {
                         muted_ui.Visibility = Visibility.Hidden;
                         volume_ui.Value = managedData[i].volume;
@@ -137,11 +139,6 @@ namespace system08
                 //    border.BorderThickness = new Thickness(1);
             }
         }
-    }
-    public partial class wdata
-    {
-        public bool muted;
-        public double volume;
     }
     //*/
 }
