@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800"
         Closing="Window_Closing"
         >
-        
+
     <Window.Resources>
         <ctrl:BooleanVisiblityConverter x:Key="booleanConverter"/>
         <Style x:Key="unselectedListViewStyle" TargetType="{x:Type TextBlock}">
@@ -37,11 +37,25 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <TextBlock Text="{Binding Path=priority}" Style="{StaticResource unselectedListViewStyle}"/>
-                                    <TextBox PreviewTextInput="TextBox_PreviewTextInput" 
+                                    <TextBlock Text="{Binding Path=priority}" 
+                                               Style="{StaticResource unselectedListViewStyle}"
+                                               Margin="-30,0,0,0"
+                                               Width="30"/>
+                                    <TextBox x:Name="priority"
+                                             PreviewTextInput="TextBox_PreviewTextInput" 
                                              CommandManager.PreviewExecuted="TextBox_PreviewExecuted"
                                              KeyDown="TextBox_KeyDown"
-                                             Text="{Binding Path=priority}" Style="{StaticResource selectedListViewStyle}" />
+                                             Text="{Binding Path=priority}" Style="{StaticResource selectedListViewStyle}" 
+                                             IsEnabled="False"
+                                             Margin="-30,0,0,0"
+                                             Width="30"/>
+                                    <Button x:Name ="button"
+                                            Content="変更"
+                                            FontSize="12"
+                                            Click="SetPriority"
+                                            IsEnabled="True"
+                                            Margin="30,0,0,0"
+                                            Width="30"/>
                                 </Grid>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -50,7 +64,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Slider Width="150"
+                                    <Slider x:Name="volume"
+                                            Width="150"
                                             TickPlacement="BottomRight"
                                             Foreground="Black"
                                             Margin="10"
