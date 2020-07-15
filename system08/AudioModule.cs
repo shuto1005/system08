@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using CSCore.CoreAudioAPI;
 
 namespace system08
@@ -36,8 +37,9 @@ namespace system08
             double volume = -1;
             Process process = Process.GetProcessById(processId);
 
-            // Get by enumerator.
-            GetAudioSessions((AudioSessionControl session) => {
+            // Call from a new thread.
+            Task.Run(() => GetAudioSessions((AudioSessionControl session) =>
+            {
                 try
                 {
                     AudioSessionControl2 session2 = session.QueryInterface<AudioSessionControl2>();
@@ -51,12 +53,13 @@ namespace system08
                         SimpleAudioVolume audioVolume = session.QueryInterface<SimpleAudioVolume>();
                         volume = audioVolume.MasterVolume;
                     }
-                } catch(Exception e)
+                }
+                catch (Exception e)
                 {
                     // Usually Win32Exception.
                     Console.WriteLine(e.Message);
                 }
-            });
+            }));
 
             return volume;
         }
@@ -77,8 +80,8 @@ namespace system08
             bool isApplied = false;
             Process process = Process.GetProcessById(processId);
 
-            // Apply percentage.
-            GetAudioSessions((AudioSessionControl session) => {
+            // Call from a new thread.
+            Task.Run(() => GetAudioSessions((AudioSessionControl session) => {
                 try
                 {
                     AudioSessionControl2 session2 = session.QueryInterface<AudioSessionControl2>();
@@ -98,7 +101,7 @@ namespace system08
                     // Usually Win32Exception.
                     Console.WriteLine(e.Message);
                 }
-            });
+            }));
 
             return isApplied;
         }

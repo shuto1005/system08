@@ -77,6 +77,7 @@ namespace system08
                     else
                     {
                         list[i].priority = 99 - i;  /// 一致しなかったら、SetPriority(99-i)
+                        history.Add(list[i]);
                     }
                     managedData.Add(list[i]);
                 }

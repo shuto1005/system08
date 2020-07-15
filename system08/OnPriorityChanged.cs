@@ -173,6 +173,21 @@ namespace system08
                 //managedData[num].priority = int.Parse(text_list[num].Text);
                 managedData[num].priority = int.Parse(text.Text);
 
+                if (history == null)
+                    history = new List<wdata>();
+                bool exist = false;
+                for (int i = 0; i < history.Count; ++i)
+                {
+                    if (history[i].id == managedData[num].id)
+                    {
+                        exist = true;
+                        history[i] = managedData[num];
+                        break;
+                    }
+                }
+                if (!exist)
+                    history.Add(managedData[num]);
+
                 //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
                 //priorityModule.assignPriority(managedData[num].priority, managedData);
                 System.Diagnostics.Trace.WriteLine("push");
