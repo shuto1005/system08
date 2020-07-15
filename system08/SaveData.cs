@@ -42,6 +42,18 @@ namespace system08
         /// <summary>
         /// ウィンドウ情報のコンストラクタ
         /// </summary>
+        public wdata()
+        {
+            this.id = 0;
+            this.priority = 0;
+            this.productName = "";
+            this.hwnd = IntPtr.Zero;
+            this.volume = -1;
+        }
+
+        /// <summary>
+        /// ウィンドウ情報のコンストラクタ
+        /// </summary>
         /// <param name="id"></param>
         /// <param name="priority"></param>
         /// <param name="productName"></param>
