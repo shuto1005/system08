@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sufan\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj": {}
+    "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sufan\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj": {
+    "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sufan\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
+        "projectUniqueName": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj",
         "projectName": "system08",
-        "projectPath": "C:\\Users\\sufan\\Source\\Repos\\shuto1005\\system08\\system08\\system08.csproj",
-        "packagesPath": "C:\\Users\\sufan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sufan\\Source\\Repos\\shuto1005\\system08\\system08\\obj\\",
+        "projectPath": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\system08.csproj",
+        "packagesPath": "C:\\Users\\yuto-\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yuto-\\source\\repos\\shuto1005\\system08\\system08\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sufan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yuto-\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
