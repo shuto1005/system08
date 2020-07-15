@@ -24,9 +24,7 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
-system08/bin/
 [Oo]bj/
-system08/obj/
 [Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
