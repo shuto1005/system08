@@ -1,4 +1,9 @@
-﻿using System;
+﻿// C3 音量処理部で実装する関数の実装
+// -----
+// AL18004 秋山 久遠
+
+
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CSCore.CoreAudioAPI;
@@ -9,27 +14,30 @@ namespace system08
 
     class AudioModule
     {
-
+        /// <summary>
+        /// CSCore を用いたオーディオセッションの取得
+        /// </summary>
+        /// <param name="callback">各セッションに対し行う関数</param>
         static void GetAudioSessions(EnumAudioSessionDelegation callback)
         {
-            // Get default audio device and enumerators.
+            // デフォルトオーディオエンドポイントとイテレータの取得
             MMDevice device = MMDeviceEnumerator.DefaultAudioEndpoint(CSCore.CoreAudioAPI.DataFlow.Render, CSCore.CoreAudioAPI.Role.Multimedia);
             AudioSessionManager2 manager = AudioSessionManager2.FromMMDevice(device);
             AudioSessionEnumerator enumerator = manager.GetSessionEnumerator();
 
             foreach (AudioSessionControl sessionControl in enumerator)
             {
-                // Callback.
+                // 関数呼び出し
                 callback(sessionControl);
             }
         }
 
         /// <summary>
-        /// Get volumes as integer.
+        /// アプリケーションの音量をdouble型で取得
         /// </summary>
-        /// <param name="processId"></param>
-        /// <param name="percentage"></param>
+        /// <param name="processId">プロセスID</param>
         /// <returns>
+        /// 音量(0~1) as double.
         /// -1 means no audio.
         /// </returns>
         public static double GetVolume(int processId)
@@ -47,7 +55,7 @@ namespace system08
                     // // Ideal is branch if the process id is equal. (not working)
                     // if (session2.ProcessID == processId)
 
-                    // If filename is the same.
+                    // モジュールのパスが同じであるか
                     if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
                     {
                         SimpleAudioVolume audioVolume = session.QueryInterface<SimpleAudioVolume>();
@@ -65,12 +73,12 @@ namespace system08
         }
 
         /// <summary>
-        /// Set volumes.
+        /// アプリケーションの音量を設定
         /// </summary>
-        /// <param name="processId"></param>
-        /// <param name="percentage">Range 0.0 to 1.0</param>
+        /// <param name="processId">プロセスID</param>
+        /// <param name="percentage">音量(0~1)</param>
         /// <returns>
-        /// Volume is set or not.
+        /// 音量が設定できたか
         /// </returns>
         public static bool SetVolume(int processId, double percentage)
         {
@@ -89,7 +97,7 @@ namespace system08
                     // // Ideal is branch if the process id is equal. (not working)
                     // if (session2.ProcessID == processId)
 
-                    // If filename is the same.
+                    // モジュールのパスが同じであるか
                     if (process.MainModule != null && session2.Process.MainModule.FileName == process.MainModule.FileName)
                     {
                         SimpleAudioVolume volume = session.QueryInterface<SimpleAudioVolume>();
@@ -98,7 +106,7 @@ namespace system08
                     }
                 } catch(Exception e)
                 {
-                    // Usually Win32Exception.
+                    // Win32Exceptionなど
                     Console.WriteLine(e.Message);
                 }
             }));
