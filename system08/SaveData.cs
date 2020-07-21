@@ -26,9 +26,10 @@ namespace system08
 		{
             try
             {
+                // データをシリアライズし文字列に変換
                 string serialized = JsonSerializer.Serialize(data);
                 // 上書き保存
-                StreamWriter writer = new StreamWriter(@".\data.txt", false, Encoding.GetEncoding("UTF-8"));
+                StreamWriter writer = new StreamWriter(@".\data.txt", false);
                 writer.Write(serialized);
                 writer.Close();
             } catch(UnauthorizedAccessException e)
