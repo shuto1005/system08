@@ -21,9 +21,12 @@ namespace system08
 
 		private PriorityModule priorityModule;
 
-
-		public UIModule()　//システム起動
+		/// <summary>
+		/// UIModuleのコンストラクタ
+		/// </summary>
+		public UIModule()
 		{
+			// 初期化
 			priorityModule = new PriorityModule();
 			managedData = new ObservableCollection<wdata>();
 			Run();
