@@ -15,7 +15,7 @@ namespace system08
         /// <summary>
         /// このウィンドウが閉じる時に呼び出される
         /// 有効なウィンドウの【TopMost】を解除する
-        /// <returns>保存成功 as bool.</returns>
+        /// <returns>解除成功 as bool.</returns>
         /// </summary>
         public bool Release()
         {
