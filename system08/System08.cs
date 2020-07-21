@@ -33,7 +33,13 @@ namespace system08
 			{
 				managedData.Add(list[i]);
 			}
-			priorityModule.assignPriority(IntPtr.Zero, 99, managedData);
+			try
+			{
+				priorityModule.assignPriority(IntPtr.Zero, 99, managedData);
+			} catch(Exception e)
+            {
+				System.Windows.MessageBox.Show("コンストラクタでの例外\n" + e.Message);
+            }
 			return true;
 		}
 
