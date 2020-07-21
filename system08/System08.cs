@@ -1,4 +1,9 @@
-﻿using System;
+﻿// C1 UI処理部（起動処理、終了処理）の実装
+// -----
+// AL18088 野本秀登
+
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -23,7 +28,10 @@ namespace system08
 			managedData = new ObservableCollection<wdata>();
 			Run();
 		}
-		public bool Run() ///Run変数はシステムの起動するための変数
+		 /// <summary>
+        /// システムの起動
+        /// </summary>
+		public bool Run()
 
 		{
 			history = priorityModule.Load();
@@ -42,8 +50,11 @@ namespace system08
             }
 			return true;
 		}
-
-		public void Destruct(int order_end)　///Destruct変数は前回システムを使用した際のデータを保存する役割
+		 /// <summary>
+        /// データを保存
+        /// </summary>
+        /// <param name="order_end">フラグ</param>
+		public void Destruct(int order_end)　
 
 		{
 			priorityModule.Save(history);
