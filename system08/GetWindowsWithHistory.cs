@@ -1,4 +1,8 @@
-﻿using System;
+﻿// C1 UI処理部で変更ボタンが押された場合の処理の実装
+// -----
+// AL18052 坂本 達哉
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -8,9 +12,11 @@ namespace system08
     public partial class UIModule
     {
         /// <summary>
-        /// GetWindowsから情報を取得し、保存データと照合
+        /// 全ウィンドウの情報を保存データと照合して優先度を設定する
+        /// <returns>
+        /// ウィンドウデータのリスト as List<wdata>.
+        /// </returns>
         /// </summary>
-        /// <returns></returns>
         public List<wdata> GetWindowsWithHistory()
         {
             List<wdata> list = priorityModule.GetWindows();
@@ -40,7 +46,6 @@ namespace system08
                     history.Add(list[i]);
                 }
             }
-
             return list;
         }
     }
