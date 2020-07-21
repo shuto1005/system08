@@ -1,10 +1,6 @@
-﻿//制作者：AL18052 坂本達哉
-
-//内部関数：
-//  bool Release()
-//		優先度選択画面を閉じる時に呼び出す
-
-//完成
+﻿// C1 UI処理部で終了時の処理を実装
+// -----
+// AL18052 坂本 達哉
 
 using System;
 using System.Linq;
@@ -17,10 +13,10 @@ namespace system08
     partial class UIModule
     {
         /// <summary>
-        /// 優先度選択画面を閉じる時に呼び出す関数
-        /// 有効なウィンドウの【TopMost】を解除する 
+        /// このウィンドウが閉じる時に呼び出される
+        /// 有効なウィンドウの【TopMost】を解除する
+        /// <returns>保存成功 as bool.</returns>
         /// </summary>
-        /// <returns></returns>
         public bool Release()
         {
             List<wdata> w_list = managedData.ToList();

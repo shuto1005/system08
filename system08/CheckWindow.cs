@@ -1,10 +1,6 @@
-﻿//制作者：AL18052 坂本達哉
-
-//内部関数：
-//  CheckWindow(IntPtr hWnd)
-//		【ウィンドウの有効/無効】を調べる時に呼び出す。
-
-//完成
+﻿// C2 優先度処理部でウィンドウの有効・無効を判定する処理を実装
+// -----
+// AL18052 坂本 達哉
 
 using System;
 using System.Collections.Generic;
@@ -16,12 +12,10 @@ namespace system08
 	partial class PriorityModule
 	{
 		/// <summary>
-		/// /【引数で渡されたウィンドウハンドル】が、現在でも有効であるどうか
-		/// 有効なら【true】を返す
-		/// 無効なら【false】を返す
+		///ウィンドウが現在でも有効か、無効かを判定する
+		/// <param name="hWnd">調べるウィンドウのハンドル</param>
+		/// <returns>有効なら【true】無効なら【false】 as bool.</returns>
 		/// </summary>
-		/// <param name="hWnd"></param>
-		/// <returns></returns>
 		public bool CheckWindow(IntPtr hWnd)
 		{
 			return IsWindow(hWnd);

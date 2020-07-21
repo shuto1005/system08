@@ -1,4 +1,6 @@
-﻿//制作者：AL18052 坂本達哉
+﻿// C1 UI処理部で変更ボタンが押された場合の処理の実装
+// -----
+// AL18052 坂本 達哉
 
 //内部関数：
 //  void SetPriority(object sender, RoutedEventArgs e)
@@ -9,10 +11,6 @@
 //      優先度欄に【Enter】を入力した時に呼び出す
 //  void OnPriorityChanged3(object sender, KeyEventArgs e)
 //      優先度欄へのコピペを無効にする
-
-//未完成：
-//  【button_list, text_list】の読み込み処理が無いため。
-//   ボタンや優先度欄の有効/無効の切り替えが出来ない
 
 using System;
 using System.Collections.Generic;
@@ -26,9 +24,9 @@ namespace system08
 {
     partial class UIModule
     {
-        //優先度変更のButtonのList  Run()で読み込む予定
+        //優先度変更のButtonのList
         public List<Button> button_list = new List<Button>();
-        //優先度のTextBoxのList  Run()で読み込む予定
+        //優先度のTextBoxのList
         public List<TextBox> text_list = new List<TextBox>();
 
         private int button_num = 0; //ボタン識別変数
@@ -36,13 +34,10 @@ namespace system08
 
 
         /// <summary>
-        /// 【優先度変更ボタン】を全て無効にする
-        /// 押された【優先度変更ボタン】に対応する【優先度欄】(TextBox)のみを有効にする
-        /// 優先度変更の重複を避けるため。
+        /// 優先度欄への入力を許可する
+        /// <param name="sender">更新ボタンの情報</param>
+        /// <param name="e">イベントの情報</param>
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
         public void SetPriority(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -59,28 +54,25 @@ namespace system08
                 MessageBox.Show("Removed : " + str);
                 return;
             }
-
+            //【変更ボタン】を全て無効にする
             for (int i = 0; i < button_list.Count; ++i)
                 button_list[i].IsEnabled = false;
-            text_list[button_num].IsEnabled = true;///////////////////////////////
+            //押された【変更ボタン】に対応する【優先度欄】のみを有効にする
+            text_list[button_num].IsEnabled = true;
         }
-        //*/
-
 
         /// <summary>
-        /// 優先度は数字2文字までを受け付ける
-        /// 0文字で【Enter】が押されたらエラー表示する
-        /// 2文字を超えるとエラー表示する
+        /// 優先度欄への入力を数字2文字まで受け付ける
+        /// 誤入力の場合はエラーを表示する
+        /// <param name="sender">優先度欄の情報</param>
+        /// <param name="e">イベントの情報</param>
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         public void PreviewPriorityText(object sender, TextCompositionEventArgs e)
         {
-            ///////////////////////////////////////////////
             var text = sender as TextBox;
             if (text == null)
                 return;
-            string str = text.Name.Remove(0, 8); //str.Replace("priority", "");
+            string str = text.Name.Remove(0, 8);
             if (!int.TryParse(str, out button_num))
             {
                 MessageBox.Show("Not Integer : " + str);
@@ -92,11 +84,9 @@ namespace system08
                 MessageBox.Show("Removed : " + str);
                 return;
             }
-            ///////////////////////////////////////////////////////
 
             bool flag;
             //入力文字列が２文字以下であるかを判定
-            //switch (text_list[button_num].Text.Length)
             switch (text.Text.Length)
             {
                 case 0:
@@ -124,27 +114,21 @@ namespace system08
             }
         }
 
-
         /// <summary>
-        /// 【Enter】が押されたら、呼び出される
-        /// 【01】などを【1】に戻す
-        /// 【優先度欄】を無効にする
-        /// 【優先度変更ボタン】を全て有効にする
-        /// 【ウィンドウを更新する関数】を呼び出す
-        /// 【変更された優先度】を保存する
-        /// </summary>
+        /// 優先度欄への入力時に【Enter】が押されたら、呼び出される
+        /// 変更された優先度を保存して反映する
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// </summary>
         public void OnPriorityChanged(object sender, KeyEventArgs e)
         {
-            ///////////////////////////////////////////////
             var text = sender as TextBox;
             if (text == null)
             {
                 MessageBox.Show("Cannot Change");
                 return;
             }
-            string str = text.Name.Remove(0, 8); //str.Replace("priority", "");
+            string str = text.Name.Remove(0, 8);
             if (!int.TryParse(str, out button_num))
             {
                 MessageBox.Show("Not Integer : " + str);
@@ -156,23 +140,21 @@ namespace system08
                 MessageBox.Show("Removed : " + str);
                 return;
             }
-            ///////////////////////////////////////////////
 
             int num = button_num;
-            //if (e.Key == Key.Return && text_list[num].Text.Length >= 1)
             if (e.Key == Key.Return && text.Text.Length >= 1)
             {
                 enter = true;
-                //if (text_list[num].Text[0] == '0' && text_list[num].Text.Length == 2)
+                //【01】などの文字列を【1】に正す
                 if (text.Text[0] == '0' && text.Text.Length == 2)
-                    //text_list[num].Text = text_list[num].Text[1] + "";
                     text.Text = text.Text[1] + "";
+                //入力完了した【優先度欄】を無効にする
                 text_list[num].IsEnabled = false;
 
-                //優先度を保持
-                //managedData[num].priority = int.Parse(text_list[num].Text);
+                //【変更された優先度】を保持する
                 managedData[num].priority = int.Parse(text.Text);
 
+                //【変更された優先度】を保存する 
                 if (history == null)
                     history = new List<wdata>();
                 bool exist = false;
@@ -184,28 +166,25 @@ namespace system08
                         history[i] = managedData[num];
                         break;
                     }
-                }
+                }       
                 if (!exist)
                     history.Add(managedData[num]);
 
-                //ウィンドウ切り替え関数()  ただし優先度選択画面が最前面
-                //priorityModule.assignPriority(managedData[num].priority, managedData);
+                //ウィンドウ切り替え関数を呼び出す
                 System.Diagnostics.Trace.WriteLine("push");
                 priorityModule.assignPriority(managedData[num].hwnd, managedData[num].priority, managedData);
 
-                //優先度変更ボタンを有効にする
+                //全ての【変更ボタン】を有効にする
                 for (int i = 0; i < button_list.Count; ++i)
                     button_list[i].IsEnabled = true;
             }
         }
 
-
-
         /// <summary>
-        /// 貼り付けを許可しない
+        /// 入力時に【貼り付け】を許可させない
+        /// <param name="sender">優先度欄の情報</param>
+        /// <param name="e">イベントの情報</param>
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         public void PreviewPriorityExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Paste)
@@ -213,6 +192,10 @@ namespace system08
                 e.Handled = true;
             }
         }
+        /// <summary>
+        /// このウィンドウ自身のハンドルを保持する
+        /// <param name="hWnd">このウィンドウ自身のハンドル</param>
+        /// </summary>
         public void SetThisWindowHandle(IntPtr hWnd)
         {
             priorityModule.this_window_hwnd = hWnd;

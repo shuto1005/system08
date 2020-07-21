@@ -17,7 +17,7 @@ namespace system08
 	public partial class PriorityModule
 	{ 
         /// <summary>
-        ///データを読み込む
+        ///データ読み込み
         /// <returns> history </returns>
         /// </summary>
 		public List<wdata> Load()
@@ -32,7 +32,8 @@ namespace system08
                     if((line = sr.ReadLine()) != null)
                     {
                         Console.WriteLine(line);
-                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(line);//デシリアライズ
+                        //デシリアライズ
+                        List<wdata> history = JsonSerializer.Deserialize<List<wdata>>(line);
 
                         return history;
 		            }    

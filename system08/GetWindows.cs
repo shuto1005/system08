@@ -1,12 +1,6 @@
-﻿//制作者：AL18052 坂本達哉
-
-//内部関数：
-//  List<wdata> GetWindows()
-//		ウィンドウを読み込む時に呼び出す
-//  bool EnumWindowCallBack(IntPtr hWnd, IntPtr lparam)
-//      【EnumWindows関数】のコールバック関数
-
-//完成
+﻿// C1 UI処理部で終了時の処理を実装
+// -----
+// AL18052 坂本 達哉
 
 using System;
 using System.Collections.Generic;
@@ -26,10 +20,9 @@ namespace system08
         private int count = 0;
 
         /// <summary>
-        /// ウィンドウを読み込む【EnumWindows関数】を呼び出すための関数
-        /// List型の変数【m_GetWindow_List】を返す
+        /// ウィンドウを読み込む【EnumWindows関数】を呼び出す
+        /// <returns>ウィンドウデータのリスト as List<wdata>.</returns>
         /// </summary>
-        /// <returns name="m_GetWindows_List"></returns>
         public List<wdata> GetWindows()
         {
             count = 0;
@@ -39,16 +32,13 @@ namespace system08
             return m_GetWindows_List;
         }
 
-
-
         /// <summary>
-        /// EnumWindows関数のコールバック関数（必須）
+        /// EnumWindows関数のコールバック関数
         /// 全てのウィンドウを読み込み、フィルタを通して必要なウィンドウを識別する。
-        /// 正しく読み込んだウィンドウは、List型の変数 m_GetWindow_List へ格納する。
+        /// <param name="hWnd">取得したウィンドウのハンドル</param>
+        /// <param name="lparam">ウィンドウハンドル</param>
+        /// <returns>次のウインドウを読み込むかどうか as bool.</returns>
         /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="lparam"></param>
-        /// <returns></returns>
         private bool EnumWindowCallBack(IntPtr hWnd, IntPtr lparam)
         {
             //ウィンドウが可視状態かどうかを取得する
