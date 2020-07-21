@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
 using System.Text;
+using System.Windows;
+using System.Security;
 
 namespace system08
 {
@@ -17,11 +19,23 @@ namespace system08
         /// <param name="data"></param>
 		public void Save(List<wdata> data)
 		{
-            string serialized = JsonSerializer.Serialize(data);
-            // 上書き保存
-            StreamWriter writer = new StreamWriter(@".\data.txt", false, Encoding.GetEncoding("UTF-8"));
-            writer.Write(serialized);
-            writer.Close();
+            try
+            {
+                string serialized = JsonSerializer.Serialize(data);
+                // 上書き保存
+                StreamWriter writer = new StreamWriter(@".\data.txt", false, Encoding.GetEncoding("UTF-8"));
+                writer.Write(serialized);
+                writer.Close();
+            } catch(UnauthorizedAccessException e)
+            {
+                MessageBox.Show("保存データのアクセスが拒否されました\n" + e.Message);
+            } catch(SecurityException e)
+            {
+                MessageBox.Show("呼び出し元に、必要なアクセス許可がありません\n" + e.Message);
+            } catch(Exception e)
+            {
+                MessageBox.Show("エラーが発生しました\n" + e.Message);
+            }
         }
     }
 
