@@ -1,4 +1,9 @@
-﻿using System;
+﻿// C2 優先度処理部で実装するデータ保存機能およびデータ型の実装
+// -----
+// AL18004 秋山 久遠
+
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json;
@@ -16,7 +21,7 @@ namespace system08
         /// <summary>
         /// データを ./data.txt として上書き保存
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">保存するデータリスト</param>
 		public void Save(List<wdata> data)
 		{
             try
@@ -40,7 +45,7 @@ namespace system08
     }
 
     /// <summary>
-    /// A unit of data to hold window information.
+    /// データ型
     /// </summary>
     public class wdata
     {
@@ -68,10 +73,10 @@ namespace system08
         /// <summary>
         /// ウィンドウ情報のコンストラクタ
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="priority"></param>
-        /// <param name="productName"></param>
-        /// <param name="hwnd"></param>
+        /// <param name="id">ウィンドウの識別し</param>
+        /// <param name="priority">優先度</param>
+        /// <param name="productName">表示する名前</param>
+        /// <param name="hwnd">ウィンドウハンドル</param>
         public wdata(int id, int priority, string productName, IntPtr hwnd, double volume)
         {
             this.id = id;
@@ -81,6 +86,7 @@ namespace system08
             this.volume = volume;
         }
     }
+
     partial class UIModule
     {
         /// <summary>
