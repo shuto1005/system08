@@ -23,7 +23,7 @@ namespace system08
 			managedData = new ObservableCollection<wdata>();
 			Run();
 		}
-		public bool Run() //Run変数はシステムの起動するための変数
+		public bool Run() ///Run変数はシステムの起動するための変数
 
 		{
 			history = priorityModule.Load();
@@ -43,7 +43,7 @@ namespace system08
 			return true;
 		}
 
-		public void Destruct(int order_end)　//Destruct変数は前回システムを使用した際のデータを保存する役割
+		public void Destruct(int order_end)　///Destruct変数は前回システムを使用した際のデータを保存する役割
 
 		{
 			priorityModule.Save(history);
